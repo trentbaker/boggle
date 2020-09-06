@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" onclick="boggle()">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Boggle</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
-<body onclick="boggle()">
+<body>
 <div id="root">
     <div class="row">
         <div class="dice"></div>
@@ -30,6 +30,10 @@
         <div class="dice"></div>
         <div class="dice"></div>
         <div class="dice"></div>
+    </div>
+    <div class="controls">
+        <button id="start-button" onclick="boggle(180)">Boggle</button>
+        <button onclick="resetGame()">Reset</button>
     </div>
 </div>
 <script type="text/javascript" src="js/index.js"></script>
