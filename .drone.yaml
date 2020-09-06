@@ -1,0 +1,26 @@
+kind: pipeline
+type: docker
+name: boggle
+volumes:
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
+steps:
+  - name: install
+    image: node
+    commands:
+      - yarn install
+  - name: release
+    when:
+      branch:
+        - master
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: HUB_USER
+      password:
+        from_secret: HUB_PASS
+      repo: btrent/boggle
+      tags:
+        - ${DRONE_BRANCH}
+        - ${DRONE_BRANCH}-${DRONE_BUILD_NUMBER}
