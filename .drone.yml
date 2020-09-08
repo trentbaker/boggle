@@ -11,7 +11,6 @@ steps:
     commands:
       - yarn install
   - name: release
-    privileged: true
     when:
       branch:
         - master
